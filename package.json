@@ -1,0 +1,22 @@
+{
+  "name": "gravity",
+  "version": "0.1.0",
+  "description": "Simple HTML5 physics-space-gravity-awesomeness-based game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "html5",
+    "game",
+    "physics"
+  ],
+  "author": "Arthur Xavier <xavier@dcc.ufmg.br>",
+  "license": "MIT",
+
+  "devDependencies": {
+    "coffee-script": "~1.7.1",
+    "uglify-js": "~2.4.12",
+    "watchr": "~2.4.11"
+  }
+}
