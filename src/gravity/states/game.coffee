@@ -39,14 +39,14 @@ class States.Game extends Axe.State
           @physics.rotation = random(-Math.PI, Math.PI)
           @physics.angularVelocity = random(-Math.PI / 100, Math.PI / 100)
           #
-          @physics.velocity = new Vector random(-0.05, 0.05), random(1.0, 1.25)
+          @physics.velocity = new Vector random(-0.05, 0.05), random(1.25, 1.5)
           @physics.y_velocity = @physics.velocity.y
           #
           @physics.position = new Vector random(0.1, 0.9) / game.pixelSize, 0, true
           @physics.position.y = -@physics.radius*@physics.gravityField
 
       # spawn planets
-      @interval = interval 2250, spawnPlanet
+      @interval = interval 2000, spawnPlanet
 
     collided: ->
       game.states.unshift new States.Score @score, @scroll

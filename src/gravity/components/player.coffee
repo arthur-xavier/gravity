@@ -9,7 +9,7 @@ class Components.Player extends Axe.Component
   #
   @include Components.Planet
 
-  @property 'acceleration', 0.025
+  @property 'acceleration', 0.033
   @property 'torque', 0.05
   @property 'closest', 75
 
