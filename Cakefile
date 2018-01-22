@@ -13,21 +13,19 @@ build = (file, dir, options = {}) ->
   stream = fs.createWriteStream file
 
   stream.once 'open', ->
-    stream.write "window.MOBILE = #{options.mobile or "false"};\n"
     js = coffee.compile(read dir, "main.coffee")
     stream.write if options.minify then uglify.minify(js, fromString: true).code else js
     stream.end()
 
 option '-m', '--minify', 'minify the compiled javascript code'
-option '-p', '--phonegap', 'build for mobile platforms using phonegap'
 
 task 'build', 'build files into minified javascript', (options) ->
-  build 'js/axe.js', 'src/axe', options.minify
-  build 'js/gravity.js', 'src/gravity', options.minify
+  build 'js/axe.js', 'src/axe', options
+  build 'js/gravity.js', 'src/gravity', options
   console.log "done :)"
 
 task 'watch', 'watch the files for change', (options) ->
-  watchr.watch 
+  watchr.watch
     paths: ['src/axe', 'src/gravity']
     interval: 1000
     listener: (action, path, currentStat, previousStat) ->
@@ -38,7 +36,6 @@ task 'watch', 'watch the files for change', (options) ->
       else if path.match 'src/gravity'
         build 'js/gravity.js', 'src/gravity', options
         console.log "+ building js/gravity.js..."
-
 
     next: ->
       console.log 'watching...'

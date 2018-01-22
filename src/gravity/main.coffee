@@ -39,5 +39,3 @@ window.onload = ->
 
   # run
   game.start()
-
-document.addEventListener "deviceready", window.onload, false if window.MOBILE

@@ -1,9 +1,10 @@
 {
   "name": "gravity",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple HTML5 physics-space-gravity-awesomeness-based game",
   "main": "index.js",
   "scripts": {
+    "build": "cake -m build",
     "test": "test"
   },
   "keywords": [
@@ -16,7 +17,7 @@
 
   "devDependencies": {
     "coffee-script": "~1.7.1",
-    "uglify-js": "~2.4.12",
+    "uglify-js": "~2.6.0",
     "watchr": "~2.4.11"
   }
 }

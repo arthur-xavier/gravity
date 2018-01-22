@@ -40,6 +40,6 @@ class Components.Physics extends Axe.Component
         # ||@position - o.position|| * f
         @velocity._add @position.sub(o.position).normalize().mul(-f)
 
-    # 
+    #
     @position._add @velocity
     @rotation += @angularVelocity

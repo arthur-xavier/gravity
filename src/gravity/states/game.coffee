@@ -1,14 +1,14 @@
 # src/gravity/states/game.coffee
 
 PlanetColors = Axe.Colors.filter (c) ->
-  c != 'black' and c != 'cyan' and c != 'aqua'  
+  c != 'black' and c != 'cyan' and c != 'aqua'
 
 class States.Game extends Axe.State
     @property 'score'
     @property 'scroll'
     @property 'scoreboard'
     @property 'interval'
-    
+
     constructor: (@scroll) ->
       @scoreboard = document.getElementById 'scoreboard'
 

@@ -19,12 +19,11 @@ class States.Score extends Axe.State
       @highScore.style.display = 'block'
 
       # set highscore cookie
-      if typeof Storage != "undefined"
-        @highScore.value = (window.localStorage.getItem 'highscore') or 0
-        if @score > @highScore.value
-          @highScore.value = @score
-          @newHighScore = true
-        window.localStorage.setItem 'highscore', @highScore.value
+      @highScore.value = (window.localStorage.getItem 'gravity:highscore') or 0
+      if @score > @highScore.value
+        @highScore.value = @score
+        @newHighScore = true
+      window.localStorage.setItem 'gravity:highscore', @highScore.value
 
       # when any key is pressed, jump to the game
       as (new Axe.Keyboard @), ->
@@ -46,17 +45,16 @@ class States.Score extends Axe.State
 
       @scoreboard.innerHTML = "Your score was<br /><br />#{@score}"
       @pressSpace.innerHTML = "Press space to try again"
-      @highScore.innerHTML =
-        if typeof Storage != "undefined" then "#{if @newHighScore then "NEW" else ""} High Score: #{@highScore.value}" else ""
+      @highScore.innerHTML = "#{if @newHighScore then "NEW" else ""} High Score: #{@highScore.value}"
 
 
     # resize and reposition the title and description texts
     resize: ->
       @scoreboard.style.top = "#{game.canvas.height / 3}px"
       @scoreboard.style.fontSize = "#{game.pixelSize / 2}em"
-      
+
       @pressSpace.style.top = "#{game.canvas.height / 3 * 2}px"
       @pressSpace.style.fontSize = "#{game.pixelSize / 5}em"
 
       @highScore.style.top = "#{game.canvas.height / 5 * 4}px"
-      @highScore.style.fontSize = "#{game.pixelSize / 4}em"      
+      @highScore.style.fontSize = "#{game.pixelSize / 4}em"
